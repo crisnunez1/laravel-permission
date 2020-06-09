@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Spatie\Permission\Models\Permission;
@@ -18,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         return view('users.index', [
-            'users' => User::paginate(),
+            'users' => User::paginate(10),
         ]);
     }
 
@@ -85,8 +86,8 @@ class UserController extends Controller
             'email' => $request->email,
         ]);
 
-        $user->syncRoles($request->get('role'));
-//        $user->roles()->sync($roles ?: []);
+        $user->syncRoles($request->get('roles'));
+
         return redirect()->route('users.edit', $user->id)->with('info', __('User updated successfully'));
     }
 
@@ -95,9 +96,12 @@ class UserController extends Controller
      *
      * @param User $user
      * @return Response
+     * @throws Exception
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return back()->with('info', __('User deleted successfully'));
     }
 }
