@@ -7,6 +7,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @method static create(array $array)
+ * @method static find(int $int)
+ */
 class User extends Authenticatable
 {
     use Notifiable, HasRoles;
