@@ -24,9 +24,9 @@
             <li>
                 <label class="form-check-label">
                     <input type="checkbox" name="roles[]" value="{{ $role->id }}"
-                       @isset($user->id)
+                           @isset($user->id)
                            @if($user->roles->contains($role->id)) checked=checked @endif
-                       @endisset
+                        @endisset
                     >
                     {{ $role->name }}
                     ( <em>{{ $role->description ?: 'N/A'}}</em> )

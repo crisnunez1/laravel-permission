@@ -3,9 +3,9 @@
 <div class="form-group">
     <label>{{ __('Name') }}</label>
     <input type="text" class="form-control"
-        name="name"
-        id="name"
-        value="{{ old('name', $product->name) }}">
+           name="name"
+           id="name"
+           value="{{ old('name', $product->name) }}">
 </div>
 
 <div class="form-group">

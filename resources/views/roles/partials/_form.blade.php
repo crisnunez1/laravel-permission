@@ -10,7 +10,7 @@
         {{ __('Description of the role') }}
     </label>
     <textarea class="form-control" name="description"
-        rows="3">{{ old('description', $role->description) }}</textarea>
+              rows="3">{{ old('description', $role->description) }}</textarea>
 </div>
 
 <hr>
@@ -19,16 +19,16 @@
 <div class="form-group">
     <ul class="list-unstyled">
         @foreach ($permissions as $permission)
-        <li>
-            <label class="form-check-label">
-                <input type="checkbox" name="permissions[]" value="{{ $permission->id }}"
-                @isset($role->id)
-                    @if($role->permissions->contains($permission->id)) checked=checked @endif
-                @endisset>
-                {{ $permission->action }}
-                ( <em>{{ $permission->description ?: 'N/A'}}</em> )
-            </label>
-        </li>
+            <li>
+                <label class="form-check-label">
+                    <input type="checkbox" name="permissions[]" value="{{ $permission->id }}"
+                           @isset($role->id)
+                           @if($role->permissions->contains($permission->id)) checked=checked @endif
+                        @endisset>
+                    {{ $permission->action }}
+                    ( <em>{{ $permission->description ?: 'N/A'}}</em> )
+                </label>
+            </li>
         @endforeach
     </ul>
 </div>

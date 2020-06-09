@@ -21,7 +21,7 @@
                             <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
+                                    <td scope="row">{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td class="w-auto p-2">
                                         @can('users.show')
